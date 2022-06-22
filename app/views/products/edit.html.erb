@@ -1,0 +1,6 @@
+<%= form_for @product, url: product_path(@product) do |form| %>
+  Name: <%= form.text_field :name %>
+  Serial_number: <%= form.text_field :serial_number %>
+  Price: <%= form.text_field :price %>
+  <%= form.submit %>
+<% end %>
