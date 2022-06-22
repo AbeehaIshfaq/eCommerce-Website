@@ -21,12 +21,12 @@ class ProductsController < ApplicationController
 def create
     @product =Product.new(product_params)
     @product.user_id = current_user.id
+    authorize @product
     if @product.save
-      redirect_to products_path
+      redirect_to products_path, notice: 'Product was successfully created.'
     else
       render :new
     end
-    authorize @product
 end   
 def show
     @product = Product.find(params[:id])
@@ -37,14 +37,17 @@ end
 
 def edit
     @product = Product.find(params[:id])
+    authorize @product
 end
 def update
     @product = current_user.products.find(params[:id])
+    authorize @product
     @product.update(product_params)
     redirect_to product_path(@product)
 end
 def destroy
     @product = Product.find(params[:id])
+    authorize @product
     @product.destroy
     redirect_to root_path
 end

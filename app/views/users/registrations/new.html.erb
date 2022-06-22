@@ -11,7 +11,9 @@
 </div>
 <div>
      <%= f.label :role %><br />
-<%= f.select :role, ['Buyer', 'Seller']%>
+  <%= f.text_field :role, autofocus: true %>
+
+<%# <%= f.select :role, ['Buyer', 'Seller']%> %>
      
 </div>
 
