@@ -5,4 +5,12 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   enum role: {Seller: 0, Buyer: 1}
   has_many :products
+  def is_buyer?
+    role == 'buyer'
+  end
+
+  def is_seller?
+    role == 'seller'
+  end
+
 end

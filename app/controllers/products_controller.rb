@@ -19,7 +19,6 @@ class ProductsController < ApplicationController
 #     @product['quantity'] = "can't be blank" if product.quantity?
 # end        
 def create
-  byebug
     @product =Product.new(product_params)
     @product.user_id = current_user.id
     if @product.save
@@ -27,7 +26,8 @@ def create
     else
       render :new
     end
-  end   
+    authorize @product
+end   
 def show
     @product = Product.find(params[:id])
 end
