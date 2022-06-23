@@ -29,6 +29,7 @@
   </button>
   <p><%= link_to 'add to cart', add_to_cart_path(product.id),method: :post %></p>
    <%= link_to("Add Comment", new_comment_path(product_id: product.id)) %>
+  <%= link_to 'Show', comment_path(product), class: 'ui button' %><br><br>
 
 <% end %>
 <%= link_to 'sign_out', destroy_user_session_path, method: :delete %>

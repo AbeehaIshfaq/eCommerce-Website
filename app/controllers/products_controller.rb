@@ -4,8 +4,6 @@ class ProductsController < ApplicationController
     before_action :authenticate_user!
     before_action :initialize_session
     before_action :load_cart
-
-
 # #     after_action : 
 #   def after_sign_in_path_for(products)
 #    render "Products/new", :locals => { :product => @new_product } #or any route that you want use
@@ -59,7 +57,7 @@ def edit
     authorize @product
 end
 def update
-    @product = current_user.products.find(params[:id])
+    @product =Product.find(params[:id])
     authorize @product
     @product.update(product_params)
     redirect_to product_path(@product)
