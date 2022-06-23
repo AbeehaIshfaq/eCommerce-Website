@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   root 'home#index'
   resources :products
   root to: 'products#index'
+  resources :comments
   # root 'product#index'
 
 end
