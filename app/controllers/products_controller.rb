@@ -3,6 +3,8 @@ class ProductsController < ApplicationController
     # before_action :configure_permitted_parameters, if: :devise_controller?
     before_action :authenticate_user!
     before_action :initialize_session
+    before_action :load_cart
+
 
 # #     after_action : 
 #   def after_sign_in_path_for(products)
@@ -21,6 +23,9 @@ class ProductsController < ApplicationController
   def add_to_cart
     session[:cart]<<params[:id]
     redirect_to products_path
+    # id = params[:id].to_i
+    # session[:cart]<<id unless session[:cart].include?(id)
+    # redirect_to products_path
   end
 # def valid?
 #     @product['name']  = "can't be blank" if product.name?
@@ -68,6 +73,9 @@ end
 def initialize_session
   session[:visit_count] ||=0
   session[:cart] ||=[]
+end
+def load_cart
+  @cart=Product.find(session[:cart])
 end
 protected
 def configure_permitted_parameters
