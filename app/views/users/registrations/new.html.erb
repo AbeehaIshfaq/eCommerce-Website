@@ -33,6 +33,13 @@
     <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
   </div>
 
+
+  <%# image: <%= form.file_field :image, direct_upload: true  %> %>
+  <div class="field">
+    <%= f.label :Profile_Picture %><br />
+    <%= f.file_field :picture %>
+  </div>
+
   <div class="actions">
     <%= f.submit "Sign up" %>
   </div>

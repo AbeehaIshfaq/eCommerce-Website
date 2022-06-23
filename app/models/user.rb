@@ -6,6 +6,7 @@ class User < ApplicationRecord
   enum role: {Seller: 0, Buyer: 1}
   has_many :products
   has_many :comments
+  has_one_attached :picture
   def is_buyer?
     role== 'Buyer'
   end
