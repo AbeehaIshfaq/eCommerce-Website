@@ -1,0 +1,10 @@
+<header>
+    <div class='container'>
+        <nav>
+            <ul>
+                <li> <%= link_to 'Log in', user_session_path %> </li>
+                <li><%= link_to 'sign_out', destroy_user_session_path, method: :delete %> </li>
+            </ul>
+        </nav>   
+    </div> 
+</header>
