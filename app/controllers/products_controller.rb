@@ -2,6 +2,7 @@ class ProductsController < ApplicationController
 #   protect_from_forgery with: :exception
     # before_action :configure_permitted_parameters, if: :devise_controller?
     before_action :authenticate_user!
+    before_action :initialize_session
 
 # #     after_action : 
 #   def after_sign_in_path_for(products)
@@ -12,6 +13,14 @@ class ProductsController < ApplicationController
   end
   def index
     @product= Product.all
+    # session[:visit_count] ||=1
+    # session[:visit_count] +=1
+    # @visit_count = 1
+  end
+
+  def add_to_cart
+    session[:cart]<<params[:id]
+    redirect_to products_path
   end
 # def valid?
 #     @product['name']  = "can't be blank" if product.name?
@@ -32,7 +41,8 @@ def show
     @product = Product.find(params[:id])
 end
 def index
-    @products= current_user.products
+   # @products= current_user.products
+   @products= Product.all
 end
 
 def edit
@@ -54,6 +64,10 @@ end
 private
 def product_params
     params.require(:product).permit(:name, :serial_number, :price)
+end
+def initialize_session
+  session[:visit_count] ||=0
+  session[:cart] ||=[]
 end
 protected
 def configure_permitted_parameters

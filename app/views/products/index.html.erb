@@ -1,5 +1,6 @@
-<h1>Products#index</h1>
-
+<h1>All Products</h1>
+<p> You have visited this site <%= pluralize @event, 'time' %> . </p>
+<%= debug session[:cart] %>
 <% @products.each do |product| %>
   <b>Name: <%= product.name %><br></b>
   Quantity<%= product.serial_number %><br>
@@ -10,7 +11,7 @@
   <button class="ui blue button">
   Save
   </button>
-  
+  <p><%= link_to 'add to cart', add_to_cart_path(product.id),method: :post %></p>
 <% end %>
 <%= link_to 'sign_out', destroy_user_session_path, method: :delete %>
 <%= link_to 'Edit Profile', edit_user_registration_path %>
