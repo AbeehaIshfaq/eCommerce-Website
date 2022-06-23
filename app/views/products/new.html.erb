@@ -3,5 +3,6 @@ New Product
   Name: <%= form.text_field :name, required: true, pattern: "[a-zA]+" %>
   Quantity: <%= form.text_field :serial_number, required: true, pattern: "[Z1-9]+" %>
   Price: <%= form.text_field :price, required: true, pattern: "[Z1-9]+" %>
+  image: <%= form.file_field :image, direct_upload: true  %>
   <%= form.submit %>
 <% end %>

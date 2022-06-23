@@ -15,7 +15,13 @@
 </details>
 
 <% @products.each do |product| %>
-  <b>Name: <%= product.name %><br></b>
+<% if product.image.attached? %>
+<p>
+<%= image_tag product.image.variant(resize: "500x500") %>
+</p>
+<% end %>
+
+ <b>Name: <%= product.name %><br></b>
   Quantity<%= product.serial_number %><br>
   Price: <%= product.price %><br>
   <% if @cart.include?(product)%>

@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
     @product= Product.new
   end
   def index
-    @product= Product.all
+    @product= Product.all.with_attached_images
     # session[:visit_count] ||=1
     # session[:visit_count] +=1
     # @visit_count = 1
@@ -33,7 +33,9 @@ class ProductsController < ApplicationController
 def create
     @product =Product.new(product_params)
     @product.user_id = current_user.id
+    # product.images.attach(params[:message][:images])
     authorize @product
+    byebug
     if @product.save
       redirect_to products_path, notice: 'Product was successfully created.'
     else
@@ -70,7 +72,7 @@ def destroy
 end
 private
 def product_params
-    params.require(:product).permit(:name, :serial_number, :price)
+    params.require(:product).permit(:name, :serial_number, :price, :image)
 end
 def initialize_session
   session[:visit_count] ||=0
