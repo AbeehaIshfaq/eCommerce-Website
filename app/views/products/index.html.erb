@@ -2,6 +2,9 @@
 <p> You have visited this site <%= pluralize @event, 'time' %> . </p>
 <details>
 <summary> Shopping Cart </summary>
+<% if @cart.empty? %>
+  <p>No items in cart </p>
+<% else %>  
 <ul>
 <% @cart.each do |product| %>
   <li><%= product.name%> <p><%= button_to 'Remove from cart', remove_from_cart_path(product), method: :delete %></p>

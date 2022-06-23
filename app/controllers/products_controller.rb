@@ -21,11 +21,11 @@ class ProductsController < ApplicationController
   end
 
   def add_to_cart
-    session[:cart]<<params[:id]
-    redirect_to products_path
-    # id = params[:id].to_i
-    # session[:cart]<<id unless session[:cart].include?(id)
+    # session[:cart]<<params[:id]
     # redirect_to products_path
+    id = params[:id].to_i
+    session[:cart]<<id unless session[:cart].include?(id)
+    redirect_to products_path
   end
 # def valid?
 #     @product['name']  = "can't be blank" if product.name?
@@ -49,7 +49,11 @@ def index
    # @products= current_user.products
    @products= Product.all
 end
-
+def remove_from_cart
+  id=params[:id].to_i
+  session[:cart].delete(id)
+  redirect_to products_path
+end
 def edit
     @product = Product.find(params[:id])
     authorize @product
