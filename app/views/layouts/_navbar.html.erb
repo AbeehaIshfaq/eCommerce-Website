@@ -6,6 +6,9 @@
             <ul>
             <button style= "background-color:#55d6aa;"><%= link_to "Edit Profile", edit_user_registration_path %></button>
             <button style= "background-color:#55d6aa;"><%= link_to "sign_out", destroy_user_session_path, method: :delete %></button>
+           <% if is_seller? %>
+            <button style= "background-color:#55d6aa;"><%= link_to 'Create Product', new_product_path %></button>
+            <% end %>
             </ul>
         </nav>   
     </div> 

@@ -6,12 +6,17 @@
 <br>
 <br>
 <div align="center" ,class='contain' >
-New Product
-<%= form_for @product, url: products_path(@product) do |form| %>
-  Name: <%= form.text_field :name, required: true, pattern: "[a-zA]+" %>
-  Quantity: <%= form.text_field :serial_number, required: true, pattern: "[Z1-9]+" %>
-  Price: <%= form.text_field :price, required: true, pattern: "[Z1-9]+" %>
-  image: <%= form.file_field :image, direct_upload: true  %>
+<h1> New Product </h1>
+<%= form_for @product, url: products_path(@product) do |form| %><br><br>
+
+  Name: <%= form.text_field :name, required: true, pattern: "[a-zA]+" %><br><br>
+
+  Serial Number: <%= form.text_field :serial_number, required: true, pattern: "[Z1-9]+" %><br><br>
+
+  Price: <%= form.text_field :price, required: true, pattern: "[Z1-9]+" %><br><br>
+
+  Image: <%= form.file_field :image, direct_upload: true  %><br><br>
+
   <%= form.submit %>
 <% end %>
     </div>
