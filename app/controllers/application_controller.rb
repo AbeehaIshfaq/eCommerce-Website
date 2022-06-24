@@ -18,6 +18,6 @@ private
 
 def user_not_authorized
   flash[:alert] = 'You are not authorized to perform this action.'
-  redirect_to products_index_path
+  # redirect_to products_index_path
 end
 end

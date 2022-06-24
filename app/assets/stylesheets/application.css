@@ -13,11 +13,20 @@
  *= require_tree .
  *= require_self
  */
+ 
  .container {
 	width:1000px;
 	margin:0;
     margin-top: 50px;
 }
+.contain {
+	width:1000px;
+	margin:0;
+    margin-top: 50px;
+    background: #55d6aa;
+
+}
+
 /* .form-container {
 	width:500px;
 } */
@@ -111,3 +120,4 @@ nav ul {
     h1 {
         margin-left:30px;
       }
+

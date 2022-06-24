@@ -1,7 +1,15 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
 <h1>All Products</h1>
-<p> You have visited this site <%= pluralize @event, 'time' %> . </p>
+
+<div align="center" ,class='contain' >
 <details>
-<summary> Shopping Cart </summary>
+<summary> SHOPPING CART </summary>
 <% if @cart.empty? %>
   <p>No items in cart  </p>
   <% else %>
@@ -13,30 +21,33 @@
 </ul>  
   <% end %>
 </details>
-
+    </div>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div align="center" ,class='contain' >
 <% @products.each do |product| %>
 <% if product.image.attached? %>
 <p>
 <%= image_tag product.image.variant(resize: "500x500") %>
 </p>
 <% end %>
-
  <b>Name: <%= product.name %><br></b>
-  Quantity<%= product.serial_number %><br>
-  Price: <%= product.price %><br>
+  Price: <%= product.price %>$<br>
   <% if @cart.include?(product)%>
-    <p><%= button_to 'remove from cart', remove_from_cart_path(product), method: :delete %></p>
+    <p><%= button_to 'Remove from Cart', remove_from_cart_path(product), method: :delete %></p>
   <% end %>
-  <%= link_to 'Show', product_path(product), class: 'ui button' %><br><br>
-  <%= link_to 'Edit', edit_product_path(product) %> <br><br>
-  <%= link_to 'Delete',  product_path(product),  data: { confirm: "Are you sure?"}, method: :delete %> <br><br>
-  <button class="ui blue button">
-  Save
-  </button>
-  <p><%= link_to 'add to cart', add_to_cart_path(product.id),method: :post %></p>
-   <%= link_to("Add Comment", new_comment_path(product_id: product.id)) %>
-  <%= link_to 'Show', comment_path(product), class: 'ui button' %><br><br>
-
+   <button style= "background-color:#6495ED;"><%= link_to 'Add to Cart', add_to_cart_path(product.id),method: :post %></button><br><br>
+ <button style= "background-color:#87CEFA;"><%= link_to "Show Product Details", product_path(product) %></button>
+ <button style= "background-color:#87CEFA;"><%= link_to "Edit Product Details", edit_product_path(product) %></button>
+ <button style= "background-color:#87CEFA;"><%= link_to 'Delete',  product_path(product),  data: { confirm: "Are you sure?"}, method: :delete %></button>
+ <button style= "background-color:#87CEFA;"><%= link_to "Add Comment", new_comment_path(product_id: product.id) %> </button>
+ <button style= "background-color:#87CEFA;"><%= link_to 'Show Comments', comment_path(product) %></button><br><br>
 <% end %>
-<%= link_to 'sign_out', destroy_user_session_path, method: :delete %>
-<%= link_to 'Edit Profile', edit_user_registration_path %>
+    </div>
+
+<%# <%= link_to 'sign_out', destroy_user_session_path, method: :delete %>
+<%# <%= link_to 'Edit Profile', edit_user_registration_path %> 
