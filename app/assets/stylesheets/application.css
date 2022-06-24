@@ -15,24 +15,24 @@
  */
  .container {
 	width:1000px;
-	margin:auto;
+	margin:0;
     margin-top: 50px;
 }
-.form-container {
+/* .form-container {
 	width:500px;
-}
+} */
 header {
     background: #55d6aa;
-    text-align: center;
+     text-align: left; 
     position: fixed;
-    z-index: 999;
+    z-index: 999; 
     width: 100%;
 }
-header::after {
+/* header::after {
 content: '';
 display: table;
 clear: both;
-}
+} */
 nav {
     float: right;
   }
@@ -41,43 +41,72 @@ nav ul {
     margin: 0;
     padding: 0;
     list-style: none;
+    margin-right:-170px;
+    margin-top:-50px ;
 }
   
-nav li {
+/* nav li {
     display: inline-block;
-    margin-left: 70px;
+    margin-left: 700px;
     padding-top: 23px;
     position: relative;
-  }
+  } */
   
-  nav a {
-    color: #444;
-    text-decoration: none;
+   nav a { 
+    /* color: rgb(0, 13, 16); */
+    /* text-decoration: none; */
     text-transform: uppercase;
     font-size: 14px;
-  }
+    /* position: left; */
+    /* border-style: outset; */
+    /* margin-left: 0px; */
+    /* margin: top 40px ; */
+   } 
   
-  nav a:hover {
-    color: #000;
-  }
+  /* nav a:hover {
+    color: rgb(4, 153, 167);
+  } */
   
-  nav a::before {
+  /* nav a::before {
     content: '';
     display: block;
     height: 5px;
-    background-color: #444;
-  
-    position: absolute;
+    /* background-color: rgb(4, 153, 167); */
+    /* position: absolute;
     top: 0;
     width: 0%;
-  
-    transition: all ease-in-out 250ms;
-  }
-  
+    transition: all ease-in-out 250ms; }*/
+/*   
   nav a:hover::before {
     width: 100%;
-  }
+  } */
   
   body {
     background-color: lightblue;
+    margin-top: -20px;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    position: absolute;width: 100%;
   }
+  /* .navbar {
+    margin-bottom: 0;
+  } */
+  /* .button {
+    background-color: #4CAF50; /* Green */
+    /* border: none;
+    color: #4CAF50;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;} */
+  
+  /* body, html {
+    margin-left:1%;
+    margin-right:1%;
+    margin-bottom:1%;
+    margin-top:1%;
+    } */
+    h1 {
+        margin-left: 10px;
+      }

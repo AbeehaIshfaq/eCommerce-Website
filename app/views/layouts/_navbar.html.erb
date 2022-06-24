@@ -1,10 +1,24 @@
+<% if user_signed_in? %>
 <header>
-    <div class='container'>
-        <nav>
+    <div class='container', style='display: block; height: 50px'>
+      <h1>  Ecommerce</h1>
+        <nav >
             <ul>
-                <li> <%= link_to 'Log in', user_session_path %> </li>
-                <li><%= link_to 'sign_out', destroy_user_session_path, method: :delete %> </li>
+            <button style= "background-color:#55d6aa;"><%= link_to "Edit Profile", edit_user_registration_path %></button>
+            <button style= "background-color:#55d6aa;"><%= link_to "sign_out", destroy_user_session_path, method: :delete %></button>
             </ul>
         </nav>   
     </div> 
 </header>
+<% else %>
+<header>
+    <div class='container', style='display: block; height: 50px'>
+      <h1>  Ecommerce</h1>
+        <nav >
+            <ul>
+            <button style= "background-color:#55d6aa;"><%= link_to 'Log in/Sign up', user_session_path %></button>
+            </ul>
+        </nav>   
+    </div> 
+</header>
+<% end %>
