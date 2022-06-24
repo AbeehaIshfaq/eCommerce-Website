@@ -33,6 +33,7 @@ class ProductsController < ApplicationController
 def create
     @product =Product.new(product_params)
     @product.user_id = current_user.id
+    # @product.serial_number=Product.index_products_on_user_id.last
     # product.images.attach(params[:message][:images])
     authorize @product
     if @product.save
@@ -46,7 +47,11 @@ def show
 end
 def index
    # @products= current_user.products
+   if (is_seller?)
+    @products= current_user.products
+   else
    @products= Product.all
+   end
 end
 def remove_from_cart
   id=params[:id].to_i
@@ -79,6 +84,16 @@ def initialize_session
 end
 def load_cart
   @cart=Product.find(session[:cart])
+end
+def is_seller?
+  # puts (@users.find(params[:role]))*100
+  # puts (users.find(params[:role]))*100
+  current_user.role == 'Seller'
+end
+def is_buyer?
+  # puts (@users.find(params[:role]))*100
+  # puts (users.find(params[:role]))*100
+  current_user.role == 'Buyer'
 end
 protected
 def configure_permitted_parameters

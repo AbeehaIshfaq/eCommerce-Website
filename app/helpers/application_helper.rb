@@ -7,4 +7,9 @@ module ApplicationHelper
         # puts (users.find(params[:role]))*100
         current_user.role == 'Seller'
     end
+    def is_buyer?
+        # puts (@users.find(params[:role]))*100
+        # puts (users.find(params[:role]))*100
+        current_user.role == 'Buyer'
+    end
 end

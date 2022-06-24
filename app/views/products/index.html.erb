@@ -5,8 +5,8 @@
 <br>
 <br>
 <br>
+<% if is_buyer? %>
 <h1>All Products</h1>
-
 <div align="center" ,class='contain' >
 <details>
 <summary> SHOPPING CART </summary>
@@ -17,13 +17,16 @@
 <% @cart.each do |product| %>
   <li><%= product.name%> 
   <p> <button style= "background-color:#6495ED;"><%= link_to 'Remove from cart', remove_from_cart_path(product), method: :delete %></button><br><br>
-
 </li>
   <% end %>
 </ul>  
   <% end %>
 </details>
     </div>
+<% else %>
+<h1>All Your Products</h1>
+<% end %>
+
 <br>
 <br>
 <br>
@@ -42,12 +45,16 @@
   <% if @cart.include?(product)%>
   <p> <button style= "background-color:#6495ED;"><%= link_to 'Remove from cart', remove_from_cart_path(product), method: :delete %></button><br><br>
   <% end %>
-   <button style= "background-color:#6495ED;"><%= link_to 'Add to Cart', add_to_cart_path(product.id),method: :post %></button><br><br>
- <button style= "background-color:#87CEFA;"><%= link_to "Show Product Details", product_path(product) %></button>
+<% if is_seller? %>
  <button style= "background-color:#87CEFA;"><%= link_to "Edit Product Details", edit_product_path(product) %></button>
- <button style= "background-color:#87CEFA;"><%= link_to 'Delete',  product_path(product),  data: { confirm: "Are you sure?"}, method: :delete %></button>
- <button style= "background-color:#87CEFA;"><%= link_to "Add Comment", new_comment_path(product_id: product.id) %> </button>
- <button style= "background-color:#87CEFA;"><%= link_to 'Show Comments', comment_path(product) %></button><br><br>
+ <button style= "background-color:#87CEFA;"><%= link_to 'Delete Product',  product_path(product),  data: { confirm: "Are you sure?"}, method: :delete %></button>
+<% else %>
+   <button style= "background-color:#6495ED;"><%= link_to 'Add to Cart', add_to_cart_path(product.id),method: :post %></button><br><br>
+    <button style= "background-color:#87CEFA;"><%= link_to "Add Comment", new_comment_path(product_id: product.id) %> </button>
+ <button style= "background-color:#87CEFA;"><%= link_to 'Show Comments', comment_path(product) %></button>
+<% end %>
+ <button style= "background-color:#87CEFA;"><%= link_to "Show Product Details", product_path(product) %></button>
+<br><br>
 <% end %>
     </div>
 

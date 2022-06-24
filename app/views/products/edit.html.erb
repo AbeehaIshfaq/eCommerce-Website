@@ -9,5 +9,6 @@
   Name: <%= form.text_field :name %>
   Serial_number: <%= form.text_field :serial_number %>
   Price: <%= form.text_field :price %>
+  Image: <%= form.file_field :image, direct_upload: true  %><br><br>
   <%= form.submit %>
 <% end %>
