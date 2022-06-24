@@ -1,12 +1,25 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div align="center" ,class='contain' >
+<h1>All Comments of this Product</h1>
+<br><br>
 <% if @product.image.attached? %>
 <p>
 <%= image_tag @product.image.variant(resize: "500x500") %>
 </p>
 <% end %>Name: <%= @product.name %><br>
-Quantity: <%= @product.serial_number %><br>
-Price: <%= @product.price %><br>
+Price: <%= @product.price %>$<br>
 <% @product.comments.each do |comment| %>
 Comment: <%= comment.body %><br>
 Comment by: <%= User.find(comment.user_id).name  %><br>
 Commented on : <%= comment.created_at.strftime("%Y-%m-%d %H:%M")%><br>
+<br><br>
 <% end%>
+<button style= "background-color:#87CEFA;"><%= link_to 'Return to All Products', products_path %></button><br><br>
+
+    </div>

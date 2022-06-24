@@ -1,3 +1,11 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<div align="center" ,class='contain' >
 New Product
 <%= form_for @product, url: products_path(@product) do |form| %>
   Name: <%= form.text_field :name, required: true, pattern: "[a-zA]+" %>
@@ -6,3 +14,4 @@ New Product
   image: <%= form.file_field :image, direct_upload: true  %>
   <%= form.submit %>
 <% end %>
+    </div>
