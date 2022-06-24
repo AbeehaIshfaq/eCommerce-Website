@@ -35,7 +35,6 @@ def create
     @product.user_id = current_user.id
     # product.images.attach(params[:message][:images])
     authorize @product
-    byebug
     if @product.save
       redirect_to products_path, notice: 'Product was successfully created.'
     else

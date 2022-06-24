@@ -13,7 +13,6 @@ class CommentsController < ApplicationController
         @comment = Comment.new(comment_params)
         @comment.user_id = current_user.id
         # @comment.product_id = params[:product_id]
-        byebug
         if @comment.save
           flash[:notice] = "comment created."
           redirect_to products_path
@@ -42,7 +41,6 @@ class CommentsController < ApplicationController
       def show
         
         @comments = Product.find(params[:id]).comments
-        byebug
       end
       private 
     

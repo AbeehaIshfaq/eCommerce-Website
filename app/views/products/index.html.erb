@@ -15,7 +15,9 @@
   <% else %>
 <ul>
 <% @cart.each do |product| %>
-  <li><%= product.name%> <p><%= button_to 'Remove from cart', remove_from_cart_path(product), method: :delete %></p>
+  <li><%= product.name%> 
+  <p> <button style= "background-color:#6495ED;"><%= link_to 'Remove from cart', remove_from_cart_path(product), method: :delete %></button><br><br>
+
 </li>
   <% end %>
 </ul>  
@@ -38,7 +40,7 @@
  <b>Name: <%= product.name %><br></b>
   Price: <%= product.price %>$<br>
   <% if @cart.include?(product)%>
-    <p><%= button_to 'Remove from Cart', remove_from_cart_path(product), method: :delete %></p>
+  <p> <button style= "background-color:#6495ED;"><%= link_to 'Remove from cart', remove_from_cart_path(product), method: :delete %></button><br><br>
   <% end %>
    <button style= "background-color:#6495ED;"><%= link_to 'Add to Cart', add_to_cart_path(product.id),method: :post %></button><br><br>
  <button style= "background-color:#87CEFA;"><%= link_to "Show Product Details", product_path(product) %></button>
