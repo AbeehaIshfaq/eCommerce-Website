@@ -9,7 +9,7 @@
 <h1> New Product </h1>
 <%= form_for @product, url: products_path(@product) do |form| %><br><br>
 
-  Name: <%= form.text_field :name, required: true, pattern: "[a-zA]+" %><br><br>
+  Name: <%= form.text_field :name, required: true %><br><br>
 
   Serial Number: <%= form.text_field :serial_number, required: true, pattern: "[Z1-9]+" %><br><br>
 
