@@ -1,0 +1,27 @@
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br> 
+<div align="center" ,class='contain' >
+<h1> Your order has been placed </h1>
+<br><br>
+<h3> You have ordered the following products: </h3>
+<br>
+<% @cart.each do |product| %>
+<% if product.image.attached? %>
+<p>
+<%= image_tag product.image.variant(resize: "500x500") %>
+</p>
+  <% end %>
+  Name: <%= product.name%> 
+  <br>
+  Price: <%= product.price%> $
+  <br>
+    <br>
+
+  <% end %>
+  <button style= "background-color:#87CEFA;"><%= link_to 'Return to All Products', products_path %></button><br><br>
+    </div>

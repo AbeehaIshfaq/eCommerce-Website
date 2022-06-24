@@ -25,6 +25,8 @@ class ProductsController < ApplicationController
     session[:cart]<<id unless session[:cart].include?(id)
     redirect_to products_path
   end
+  def place_order
+  end
 # def valid?
 #     @product['name']  = "can't be blank" if product.name?
 #     @product['price']   = "can't be blank" if product.price?

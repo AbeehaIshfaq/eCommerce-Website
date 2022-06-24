@@ -39,7 +39,6 @@ class CommentsController < ApplicationController
         redirect_to products_path
       end
       def show
-        
         @comments = Product.find(params[:id]).comments
       end
       private 

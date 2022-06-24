@@ -8,6 +8,7 @@
 <div align="center">
 <% @comments.each do |comment| %>
 Comment: <%= comment.body %><br>
+ <button style= "background-color:#87CEFA;"><%= link_to 'Delete Comment',  comment_path(comment),  data: { confirm: "Are you sure?"}, method: :delete %></button>
 <% end%>
 <button style= "background-color:#87CEFA;"><%= link_to 'Return to All Products', products_path %></button><br><br>
 
