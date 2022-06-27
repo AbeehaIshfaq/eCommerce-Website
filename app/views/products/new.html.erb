@@ -11,7 +11,7 @@
 
   Name: <%= form.text_field :name, required: true %><br><br>
 
-  Price: <%= form.text_field :price, required: true, pattern: "[Z1-9]+" %><br><br>
+  Price: <%= form.text_field :price_cents, required: true, pattern: "[Z1-99999]+" %><br><br>
 
   Image: <%= form.file_field :image, direct_upload: true  %><br><br>
 

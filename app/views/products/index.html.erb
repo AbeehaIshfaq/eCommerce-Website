@@ -8,6 +8,11 @@
 <% if is_buyer? %>
 <h1>All Products</h1>
 <div align="center" ,class='contain' >
+<%= form_tag "/products", method: "GET" do %>
+  <%= label_tag :search_by_name %>
+  <%= text_field_tag :search_by_name, params[:search_by_name] %>
+    <%= submit_tag "Search" %>
+<% end %>
 <details>
 <summary> SHOPPING CART </summary>
 <% if @cart.empty? %>
@@ -43,7 +48,7 @@
 </p>
 <% end %>
  <b>Name: <%= product.name %><br></b>
-  Price: <%= product.price %>$<br>
+  Price: <%= product.price_cents %>$<br>
   <% if @cart.include?(product)%>
   <p> <button style= "background-color:#6495ED;"><%= link_to 'Remove from cart', remove_from_cart_path(product), method: :delete %></button><br><br>
   <% end %>
